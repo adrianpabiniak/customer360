@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    function:
+      definition: 'acmeretail/onlineservices/order/created/v2/{regionId}/{orderId}.publish;acmeretail/onlineservices/customer/updated/v2/{regionId}/{customerId}.publish'
+    stream:
+      bindings:
+        'acmeretail/onlineservices/order/created/v2/{regionId}/{orderId}.publish-in-0':
+          destination: acmeretail/onlineservices/order/created/v2/*/*
+        'acmeretail/onlineservices/customer/updated/v2/{regionId}/{customerId}.publish-in-0':
+          destination: acmeretail/onlineservices/customer/updated/v2/*/*
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
+
